@@ -1,0 +1,217 @@
+from django.urls import path
+
+from questionario.views import (
+    Questionario03ListView,
+    Questionario03CreateView,
+    Questionario03PKCreateView,
+    Questionario03DetailView,
+    Questionario0301PKCreateView,
+    Questionario0301DetailView,
+    Questionario03UpdateView,
+    Questionario03DeleteView,
+    Questionario0301UpdateView,
+    Questionario0301DeleteView,
+    Questionario0302PKCreateView,
+    Questionario0302DetailView,
+    Questionario0302UpdateView,
+    Questionario0302DeleteView,
+    Questionario0303PKCreateView,
+    Questionario0303DetailView,
+    Questionario0303UpdateView,
+    Questionario0303DeleteView,
+    Questionario0304PKCreateView,
+    Questionario0304DetailView,
+    Questionario0304UpdateView,
+    Questionario0304DeleteView,
+    Questionario04ListView,
+    Questionario04CreateView,
+    Questionario04PKCreateView,
+    Questionario04DetailView,
+    Questionario04UpdateView,
+    Questionario04DeleteView, Questionario05DetailView, Questionario05PKCreateView, Questionario05CreateView,
+    Questionario05ListView, Questionario05UpdateView, Questionario05DeleteView,
+)
+
+urlpatterns = [
+    # SAE – Sistematização da Assistência de Enfermagem
+    # Puérpera Admitida em Alojamento Conjunto
+    path(
+        "questionario03_listar",
+        Questionario03ListView.as_view(),
+        name="questionario03.list",
+    ),
+    path(
+        "questionario03_criar",
+        Questionario03CreateView.as_view(),
+        name="questionario03.create",
+    ),
+    path(
+        "questionario03pk_criar/<int:pk>",
+        Questionario03PKCreateView.as_view(),
+        name="questionario03pk.create",
+    ),
+    path(
+        "questionario03_detalhar/<int:pk>",
+        Questionario03DetailView.as_view(),
+        name="questionario03.detail",
+    ),
+    path(
+        "questionario03_atualizar/<int:pk>",
+        Questionario03UpdateView.as_view(),
+        name="questionario03.update",
+    ),
+    path(
+        "questionario03_deletar/<int:pk>",
+        Questionario03DeleteView.as_view(),
+        name="questionario03.delete",
+    ),
+    # NECESSIDADES PSICOBIOLÓGICAS
+    path(
+        "questionario0301pk_criar/<int:pk>",
+        Questionario0301PKCreateView.as_view(),
+        name="questionario0301pk.create",
+    ),
+    path(
+        "questionario0301_detalhar/<int:pk>",
+        Questionario0301DetailView.as_view(),
+        name="questionario0301.detail",
+    ),
+    path(
+        "questionario0301_atualizar/<int:pk>",
+        Questionario0301UpdateView.as_view(),
+        name="questionario0301.update",
+    ),
+    path(
+        "questionario0301_deletar/<int:pk>",
+        Questionario0301DeleteView.as_view(),
+        name="questionario0301.delete",
+    ),
+    # NECESSIDADES PSICOSSOCIAIS E PSICOESPIRITUAIS
+    path(
+        "questionario0302pk_criar/<int:pk>",
+        Questionario0302PKCreateView.as_view(),
+        name="questionario0302pk.create",
+    ),
+    path(
+        "questionario0302_detalhar/<int:pk>",
+        Questionario0302DetailView.as_view(),
+        name="questionario0302.detail",
+    ),
+    path(
+        "questionario0302_atualizar/<int:pk>",
+        Questionario0302UpdateView.as_view(),
+        name="questionario0302.update",
+    ),
+    path(
+        "questionario0302_deletar/<int:pk>",
+        Questionario0302DeleteView.as_view(),
+        name="questionario0302.delete",
+    ),
+    # PLANEJAMENTO DA ASSISTÊNCIA DE ENFERMAGEM
+    path(
+        "questionario0303pk_criar/<int:pk>",
+        Questionario0303PKCreateView.as_view(),
+        name="questionario0303pk.create",
+    ),
+    path(
+        "questionario0303_detalhar/<int:pk>",
+        Questionario0303DetailView.as_view(),
+        name="questionario0303.detail",
+    ),
+    path(
+        "questionario0303_atualizar/<int:pk>",
+        Questionario0303UpdateView.as_view(),
+        name="questionario0303.update",
+    ),
+    path(
+        "questionario0303_deletar/<int:pk>",
+        Questionario0303DeleteView.as_view(),
+        name="questionario0303.delete",
+    ),
+    # ORIENTAÇÕES DE ENFERMAGEM – POI/ 1PO e 2PO
+    path(
+        "questionario0304pk_criar/<int:pk>",
+        Questionario0304PKCreateView.as_view(),
+        name="questionario0304pk.create",
+    ),
+    path(
+        "questionario0304_detalhar/<int:pk>",
+        Questionario0304DetailView.as_view(),
+        name="questionario0304.detail",
+    ),
+    path(
+        "questionario0304_atualizar/<int:pk>",
+        Questionario0304UpdateView.as_view(),
+        name="questionario0304.update",
+    ),
+    path(
+        "questionario0304_deletar/<int:pk>",
+        Questionario0304DeleteView.as_view(),
+        name="questionario0304.delete",
+    ),
+    # MATERNIDADE
+    # ADMISSÃO OBSTÉTRICA
+    path(
+        "questionario04_listar",
+        Questionario04ListView.as_view(),
+        name="questionario04.list",
+    ),
+    path(
+        "questionario04_criar",
+        Questionario04CreateView.as_view(),
+        name="questionario04.create",
+    ),
+    path(
+        "questionario04pk_criar/<int:pk>",
+        Questionario04PKCreateView.as_view(),
+        name="questionario04pk.create",
+    ),
+    path(
+        "questionario04_detalhar/<int:pk>",
+        Questionario04DetailView.as_view(),
+        name="questionario04.detail",
+    ),
+    path(
+        "questionario04_atualizar/<int:pk>",
+        Questionario04UpdateView.as_view(),
+        name="questionario04.update",
+    ),
+    path(
+        "questionario04_deletar/<int:pk>",
+        Questionario04DeleteView.as_view(),
+        name="questionario04.delete",
+    ),
+
+
+    # Ficha de Atendimento Acolhimento & Classificação de Risco em Obstetrícia
+    path(
+        "questionario05_listar",
+        Questionario05ListView.as_view(),
+        name="questionario05.list",
+    ),
+    path(
+        "questionario05_criar",
+        Questionario05CreateView.as_view(),
+        name="questionario05.create",
+    ),
+    path(
+        "questionario05pk_criar/<int:pk>",
+        Questionario05PKCreateView.as_view(),
+        name="questionario05pk.create",
+    ),
+    path(
+        "questionario05_detalhar/<int:pk>",
+        Questionario05DetailView.as_view(),
+        name="questionario05.detail",
+    ),
+    path(
+        "questionario05_atualizar/<int:pk>",
+        Questionario05UpdateView.as_view(),
+        name="questionario05.update",
+    ),
+    path(
+        "questionario05_deletar/<int:pk>",
+        Questionario05DeleteView.as_view(),
+        name="questionario05.delete",
+    ),
+]

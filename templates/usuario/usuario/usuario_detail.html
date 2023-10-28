@@ -1,0 +1,196 @@
+{% extends 'base/main.html' %}{% load crispy_forms_tags %}
+{% block main %}
+    {% block titulo %}
+        <h1>Detalhes de Usuário</h1>
+    {% endblock titulo %}
+    <div class="row g-3 container-fluid">
+        <div class="col-md-5">
+
+            <label
+                    for="id_cpf"
+                    class="form-label requiredField">
+                CPF
+            </label>
+
+            <input
+                    type="text"
+                    name="cpf"
+                    class="textinput textInput form-control"
+                    id="id_cpf"
+                    placeholder="{{ usuario.cpf }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-7">
+
+            <label
+                    for="id_nome"
+                    class="form-label requiredField">
+                Nome
+            </label>
+
+            <input
+                    type="text"
+                    name="nome"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_nome"
+                    placeholder="{{ usuario.nome }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-2">
+
+            <label
+                    for="id_data_nascimento"
+                    class="form-label requiredField">
+                Data de Nascimento
+            </label>
+
+            <input
+                    type="text"
+                    name="data_nascimento"
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_nascimento"
+                    placeholder="{{ usuario.data_nascimento }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-3">
+
+            <label
+                    for="id_estado_civil"
+                    class="form-label">
+                Estado Civil
+            </label>
+
+            <input
+                    type="number"
+                    name="estado_civil"
+                    class="form-control"
+                    required=""
+                    id="Escolaridade"
+                    placeholder="{{ usuario.escolaridade }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-2">
+
+            <label
+                    for="id_estado_civil"
+                    class="form-label">
+                Estado Civil
+            </label>
+
+            <input
+                    type="number"
+                    name="estado_civil"
+                    class="form-control"
+                    required=""
+                    id="estado_civil"
+                    placeholder="{{ usuario.estado_civil }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-4">
+
+            <label
+                    for="id_nome_mae"
+                    class="form-label">
+                Profissão/Ocupação
+            </label>
+
+            <input
+                    type="text"
+                    name="profissao_ocupacao"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_nprofissao_ocupacao"
+                    placeholder="{{ usuario.profissao_ocupacao }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-1">
+
+            <label
+                    for="id_nome_pai"
+                    class="form-label">
+                Raça
+            </label>
+
+            <input
+                    type="text"
+                    name="nome_pai"
+                    class="textinput textInput form-control"
+                    id="id_nome_pai"
+                    placeholder="{{ usuario.raca }}"
+                    readonly/>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <label
+                    for="id_data_cadastro"
+                    class="form-label requiredField">
+                Data cadastro
+            </label>
+
+            <input
+                    type="text"
+                    name="data_cadastro"
+
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_cadastro"
+                    placeholder="{{ usuario.data_cadastro }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-6">
+
+            <label
+                    for="id_atualizado"
+                    class="form-label requiredField">
+                Atualizado
+            </label>
+
+            <input
+                    type="text"
+                    name="data_atualizacao"
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_atualizacao"
+                    placeholder="{{ usuario.data_atualizacao }}"
+                    readonly/>
+
+        </div>
+    </div>
+
+    <div class="fixed container-fluid mt-4 mb-4">
+        <ul class="list-inline text-right">
+            <li class="list-inline-item">
+                <a class="btn btn-secondary" href="{% url 'usuario.create' %}">
+                    <span class="bi bi-plus-circle"></span> Novo Usuário
+                </a>
+                <a class="btn btn-secondary" href="{% url 'usuario.update' pk=usuario.id %}">
+                    <span class="bi bi-arrow-repeat"></span> Atualizar
+                </a>
+                {% if usuario.paciente %}
+                    <a class="btn btn-secondary" href="{% url 'paciente.detail' pk=usuario.paciente.usuario_id %}">
+                        <span class="bi bi-card-checklist"></span> Paciente
+                    </a>
+
+                {% else %}
+                    <a class="btn btn-secondary" href="{% url 'pacientepk.create' pk=usuario.id %}">
+                        <span class="bi bi-plus-circle"></span> Paciente
+                    </a>
+
+                {% endif %}
+
+            </li>
+        </ul>
+    </div>
+
+{% endblock main %}

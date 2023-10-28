@@ -1,0 +1,287 @@
+{% extends "base/main.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+
+    <div class="row g-3 container-fluid mt-2 mb-2 border p-2">
+
+        <h1>NECESSIDADES PSICOBIOLÓGICAS</h1>
+        <div class="col-md-4">
+            <p
+                    class="form-label"> Prontuário </p>
+            <p class="form-control">{{ questionario0301.questionario03.paciente.prontuario }}</p>
+        </div>
+        <div class="col-md-8">
+            <p
+                    class="form-label"> Paciente </p>
+            <p class="form-control">{{ questionario0301.questionario03.paciente.usuario.nome }}</p>
+        </div>
+        <div class="row g-1 container-fluid mt-2 mb-2 border p-2">
+            <h1>OXIGENAÇÃO E CIRCULAÇÃO</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Respiração </p>
+                <p class="form-control">{{ questionario0301.respiracao }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> AP </p>
+                <p class="form-control">{{ questionario0301.ap }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Batimentos Cardiacos </p>
+                <p class="form-control">{{ questionario0301.batimentos_cardiacos }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Pressão Arterial </p>
+                <p class="form-control">{{ questionario0301.pressao_arterial }}</p>
+            </div>
+            <h1>HIDRATAÇÃO E NUTRIÇÃO</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Aceita a dieta oferecida </p>
+                <p class="form-control">{{ questionario0301.aceita_dieta_oferecida }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Abdome </p>
+                <p class="form-control">{{ questionario0301.abdome }}</p>
+            </div>
+            <h1>ELIMINAÇÃO</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Diurese </p>
+                <p class="form-control">{{ questionario0301.diurese }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Diurese Caracteristicas </p>
+                <p class="form-control">{{ questionario0301.diurese_caracteristicas }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Evacuações </p>
+                <p class="form-control">{{ questionario0301.evacuacoes }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Evacuações </p>
+                <p class="form-control">{{ questionario0301.evacuacoes }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Evacuações </p>
+                <p class="form-control">{{ questionario0301.evacuacoes_n_dias }}</p>
+            </div>
+            <h1>SONO E REPOUSO</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Sono Repouso </p>
+                <p class="form-control">{{ questionario0301.sono_repouso }}</p>
+            </div>
+            <h1>MOTILIDADE E LOCOMOÇÃO</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Membros Inferiores </p>
+                <p class="form-control">{{ questionario0301.membros_inferiores }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Membros Inferiores </p>
+                <p class="form-control">{{ questionario0301.sinal_homans }}</p>
+            </div>
+            <h1>CUIDADO CORPORAL</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Membros Inferiores </p>
+                <p class="form-control">{{ questionario0301.higiene }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Membros Inferiores </p>
+                <p class="form-control">{{ questionario0301.higiene }}</p>
+            </div>
+            <h1>INTEGRIDADE CUTÂNEO - MUCOSA</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Higiene </p>
+                <p class="form-control">{{ questionario0301.higiene }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Pele Mucosa </p>
+                <p class="form-control">{{ questionario0301.pele_mucosa }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Pele Mucosa - Outros </p>
+                <p class="form-control">{{ questionario0301.pele_mucosa_outros }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Pele Mucosa - Outros </p>
+                <p class="form-control">{{ questionario0301.pele_mucosa_outros }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Inicisão Cirurugica </p>
+                <p class="form-control">{{ questionario0301.inicisao_cirurgica }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Inicisão Cirurugica Quais </p>
+                <p class="form-control">{{ questionario0301.inicisao_cirurgica_quais }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Perineo </p>
+                <p class="form-control">{{ questionario0301.perineo }}</p>
+            </div>
+            <h1>REGULAÇÃO NEUROLÓGICA</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Nivel de Consciencia </p>
+                <p class="form-control">{{ questionario0301.nivel_consciencia }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Nivel de Consciencia </p>
+                <p class="form-control">{{ questionario0301.nivel_consciencia }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label"> Nivel de Consciencia Outros</p>
+                <p class="form-control">{{ questionario0301.nivel_consciencia_outros }}</p>
+            </div>
+            <h1>SEXUALIDADE E REPRODUÇÃO</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Mamas</p>
+                <p class="form-control">{{ questionario0301.mamas }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Mamilos</p>
+                <p class="form-control">{{ questionario0301.mamilos }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Colostro Expressão</p>
+                <p class="form-control">{{ questionario0301.colostro_expresssao }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Amamentação</p>
+                <p class="form-control">{{ questionario0301.amamentacao }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Amamentação Motivos</p>
+                <p class="form-control">{{ questionario0301.amamentacao_motivos }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Perdas Vaginais Características</p>
+                <p class="form-control">{{ questionario0301.perdas_vaginais_caracteristicas }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Perdas Vaginais Características</p>
+                <p class="form-control">{{ questionario0301.perdas_vaginais_caracteristicas }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Útero</p>
+                <p class="form-control">{{ questionario0301.utero }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Involução Úterina</p>
+                <p class="form-control">{{ questionario0301.involucao_uterina }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Involução Úterina acima cu</p>
+                <p class="form-control">{{ questionario0301.involucao_uterina_acima_cu }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Loquios</p>
+                <p class="form-control">{{ questionario0301.loquios }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">Loquios aumentados Quantidade</p>
+                <p class="form-control">{{ questionario0301.loquios_aumentados_quantidade }}</p>
+            </div>
+            <h1>DADOS VITAIS E CONTROLES</h1>
+            <div class="col-md-2">
+                <p
+                        class="form-label">ssvvt</p>
+                <p class="form-control">{{ questionario0301.ssvvt }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">fc</p>
+                <p class="form-control">{{ questionario0301.fc }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">r</p>
+                <p class="form-control">{{ questionario0301.r }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">r</p>
+                <p class="form-control">{{ questionario0301.r }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">pa</p>
+                <p class="form-control">{{ questionario0301.pa }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">hgt</p>
+                <p class="form-control">{{ questionario0301.hgt }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">peso</p>
+                <p class="form-control">{{ questionario0301.peso }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">atura</p>
+                <p class="form-control">{{ questionario0301.atura }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">spo2</p>
+                <p class="form-control">{{ questionario0301.spo2 }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">exames_alterados</p>
+                <p class="form-control">{{ questionario0301.exames_alterados }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">sifilis</p>
+                <p class="form-control">{{ questionario0301.sifilis }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">ts_mae</p>
+                <p class="form-control">{{ questionario0301.ts_mae }}</p>
+            </div>
+            <div class="col-md-2">
+                <p
+                        class="form-label">rn</p>
+                <p class="form-control">{{ questionario0301.rn }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock main %}

@@ -1,0 +1,263 @@
+{% extends 'base/main.html' %}{% load static %}
+{% block main %}
+
+    {% block titulo %}
+        <h1>Detalhes do Paciente</h1>
+    {% endblock titulo %}
+    <div class="border">
+        <div class="row g-3 container-fluid">
+            <div class="col-md-2">
+                <label
+                        for="id_prontuario"
+                        class="form-label ">
+                    Prontuario
+                </label>
+                <input
+                        type="text"
+                        name="prontuario"
+                        class="textinput textInput form-control"
+                        id="id_prontuario"
+                        placeholder="{{ paciente.prontuario }}"
+                        readonly/>
+            </div>
+            <div class="col-md-2">
+                <label
+                        for="id_cpf"
+                        class="form-label "> CPF </label>
+
+                <input
+                        type="text"
+                        name="cpf"
+                        class="textinput textInput form-control"
+                        id="id_cpf"
+                        placeholder="{{ paciente.usuario.cpf }}"
+                        readonly/>
+            </div>
+            <div class="col-md-8">
+                <label
+                        for="id_nome_completo"
+                        class="form-label ">
+                    Nome
+                </label>
+
+                <input
+                        type="text"
+                        name="nome_completo"
+                        class="textinput textInput form-control"
+                        id="id_nome_completo"
+                        placeholder="{{ paciente.usuario.nome }}"
+                        readonly/>
+            </div>
+            <div class="col-md-6">
+                <label
+                        for="id_data_cadastro"
+                        class="form-label ">
+                    Data do Cadastro
+                </label>
+
+                <input
+                        type="text"
+                        name="data_cadastro"
+                        class="textinput textInput form-control"
+                        id="id_data_cadastro"
+                        placeholder="{{ paciente.data_cadastro }}"
+                        readonly/>
+            </div>
+            <div class="col-md-6">
+                <label
+                        for="id_data_atualizacao"
+                        class="form-label ">
+                    Data da Atualização
+
+                </label>
+
+                <input
+                        type="text"
+                        name="data_atualizacao"
+                        class="textinput textInput form-control"
+                        id="id_data_atualizacao"
+                        placeholder="{{ paciente.data_atualizacao }}"
+                        readonly/>
+            </div>
+            <div class="fixed container-fluid mt-2">
+                <ul class="list-inline text-right">
+                    <li class="list-inline-item">
+
+                        {% include "base/button/button_update_paciente.html" %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="m-2 p-2">
+            <div class="container-fluid border p-2 mb-2 mt-2">
+                <h1 class="text-center">SAE – Sistematização da Assistência de Enfermagem
+                    <br> Puérpera Admitida em Alojamento Conjunto</h1>
+                <a class="btn btn-secondary" href="{% url 'questionario03pk.create' pk=paciente.id %}">
+                    <span class="bi bi-plus-circle"></span> Incluir
+                </a>
+                <div class="table-responsive fixed container-fluid mb-2 p-2">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Detalhes</th>
+                            <th>Atualizar</th>
+                            <th>Deletar</th>
+                            <th>Tipo de Parto</th>
+                            <th>Data do Parto</th>
+                            <th>Hora do Parto</th>
+                            <th>Data da Cadastro</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for questionario03 in paciente.questionario03_set.values %}
+                            <tr>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario03.detail' pk=questionario03.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario03.update' pk=questionario03.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario03.delete' pk=questionario03.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                {#                        <td>#}
+                                {#                            <a href=""><span class="bi bi-trash-fill"></span></a>#}
+                                {#                        </td>#}
+                                <td>{{ questionario03.tipo_parto }}</td>
+                                <td>{{ questionario03.data_parto }}</td>
+                                <td>{{ questionario03.hora_parto }}</td>
+                                <td>{{ questionario03.data_cadastro }}</td>
+                            </tr>
+                        {% empty %}
+                            <td>Nenhum Registro</td>
+                            <td></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="container-fluid border p-2 mb-2 mt-2">
+                <h1 class="text-center">MATERNIDADE
+                    <br> ADMISSÃO OBSTÉTRICA </h1>
+                <a class="btn btn-secondary" href="{% url 'questionario04pk.create' pk=paciente.id %}">
+                    <span class="bi bi-plus-circle"></span> Incluir
+                </a>
+                <div class="table-responsive fixed container-fluid mb-2 p-2">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Detalhes</th>
+                            <th>Atualizar</th>
+                            <th>Deletar</th>
+                            <th>Data da Admissão</th>
+                            <th>Hora da Admissão</th>
+                            <th>Data da Cadastro</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for questionario04 in paciente.questionario04_set.values %}
+                            <tr>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario04.detail' pk=questionario04.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario04.update' pk=questionario04.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario04.delete' pk=questionario04.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>{{ questionario04.data_adminissao }}</td>
+                                <td>{{ questionario04.hora_admissao }}</td>
+                                <td>{{ questionario04.data_cadastro }}</td>
+                            </tr>
+                        {% empty %}
+                            Nenhum Registro
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="container-fluid border p-2 mb-2 mt-2">
+                <h1 class="text-center">
+                    Ficha de Atendimento Acolhimento & Classificação de Risco em Obstetrícia </h1>
+                <a class="btn btn-secondary" href="{% url 'questionario05pk.create' pk=paciente.id %}">
+                    <span class="bi bi-plus-circle"></span> Incluir
+                </a>
+                <div class="table-responsive fixed container-fluid mb-2 p-2">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Detalhes</th>
+                            <th>Atualizar</th>
+                            <th>Deletar</th>
+
+                            <th>Data de Chegada</th>
+                            <th>Horário de Chegada</th>
+                            <th>Data do Cadastro</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for questionario05 in paciente.questionario05_set.values %}
+                            <tr>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario05.detail' pk=questionario05.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario05.update' pk=questionario05.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>
+                                    <a
+                                            href="{% url 'questionario05.delete' pk=questionario05.id %}"><span
+                                            class="bi bi-person-lines-fill"></span></a>
+                                </td>
+                                <td>{{ questionario05.data }}</td>
+                                <td>{{ questionario05.horario_chegada }}</td>
+                                <td>{{ questionario05.data_cadastro }}</td>
+                            </tr>
+                        {% empty %}
+                            Nenhum Registro
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

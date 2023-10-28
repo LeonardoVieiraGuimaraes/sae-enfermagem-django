@@ -1,0 +1,54 @@
+{% extends "base/create.html" %}
+{% load crispy_forms_filters %}
+
+{% block form %}
+    <div class="row g-3 container-fluid mt-2 mb-2 border p-2">
+        <h1> NECESSIDADES PSICOSSOCIAIS E PSICOESPIRITUAIS </h1>
+        {{ form.questionario03|as_crispy_field }}
+        <div class="row g-1 container-fluid mt-2 mb-2 border p-2">
+            <h1>ANTES DA INICISÃO CIRÚRGICA</h1>
+            <div class="col-md-3">
+                {{ form.seguranca_emocional|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.amor_aceitacao|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.amor_aceitacao_apoio_familiar|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.amor_aceitacao_acompanhante|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.amor_aceitacao_acompanhante_quem|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.aprendizagem_educacao_saude|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.comunicacao_gregaria|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.percepcao_sobre_imagem_corporal|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.autoconfianca_como_mae|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.religiao|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.necessita_auxilio_espiritual|as_crispy_field }}
+            </div>
+
+        </div>
+    </div>
+{% endblock form %}
+  {#        <div class="fixed container-fluid mt-2 mb-2 p-3">#}
+            {#            <ul class="list-inline text-right">#}
+            {#                <li class="list-inline-item">#}
+            {#                    <button type="reset" class="btn btn-secondary">Limpar</button>#}
+            {#                    <button type="submit" class="btn btn-secondary">Salvar</button>#}
+            {#                </li>#}
+            {#            </ul>#}
+            {#        </div>#}

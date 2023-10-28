@@ -1,0 +1,62 @@
+{% extends 'base/create.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block form %}
+
+    {{ form|crispy }}
+
+{#      <div class = "row g-3 container-fluid">#}
+{#    {{ form.usuario.value  }}#}
+{#        {% if form.usuario.value == none %}#}
+{#            <div class="col-md-5">{{ form.paciente|as_crispy_field }}</div>#}
+{#        {% else %}#}
+{#            {% for i in form.paciente.field.queryset.values %}#}
+{#                {% if i.id == form.paciente.value %}#}
+{#                    <div class = "col-md-3">#}
+{#                        <label#}
+{#                                class = "form-label"#}
+{#                                for = "{{ i.id }}">Paciente</label>#}
+{#                        <input#}
+{#                                class = "text-input form-control"#}
+{#                                type = "text"#}
+{#                                name = "paciente"#}
+{#                                id = "{{ i.id }}"#}
+{#                                placeholder = "{{ i.nome }}"#}
+{#                                value = "{{ form.paciente.value }}"#}
+{#                                readonly>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{##}
+{##}
+{##}
+{#    <div class="col-md-5">{{ form.tipo_parto|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.data_parto|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.hora_parto|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.g|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.p|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.a|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.ig|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.hd|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.admissao_acompanhente_livre_escolha|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.n_filhos_vivos|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.n_consultas_prenatal|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.internacao_rn|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.venoclise|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.venoclise_tipo|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.sinais_flogistico|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.alergias|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.patologias |as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.queixas|as_crispy_field }}</div>#}
+{#    <div class="col-md-2">{{ form.queixas_qual|as_crispy_field }}</div>#}
+{% endblock form %}
+
+
+{% block adicionar_button %}
+    {% include "base/button/button_create_questionario03.html" %}
+{% endblock adicionar_button %}
+
+

@@ -1,0 +1,52 @@
+{% extends 'base/list.html' %}
+
+{% block adicionar_button %}
+    {#    {% include "base/button/button_list_questionario01.html" %}#}
+    {#    {% include "base/button/button_create_questionario03.html" %}#}
+{% endblock adicionar_button %}
+
+{% block table %}
+    <thead>
+    <tr>
+        <th>Detalhes</th>
+        <th>Deletar</th>
+        <th>Atualizar</th>
+        <th>Prontuário</th>
+        <th>Paciente</th>
+        <th>Tipo do Parto</th>
+        <th>Data do Parto</th>
+        <th>Hora do Parto</th>
+        <th>Data da Cadastro</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for questionario03 in questionario03_list %}
+        <tr>
+            <td>
+                <a
+                        href = "{% url 'questionario03.detail' pk=questionario03.id %}">
+                    <span class = "bi bi-person-lines-fill"></span>
+                </a>
+            </td>
+            <td>
+                <a href = "{% url 'questionario03.delete' pk=questionario03.id %}">
+                    <span class = "bi bi-trash-fill"></span>
+                </a>
+            </td>
+             <td>
+                <a href = "{% url 'questionario03.update' pk=questionario03.id %}">
+                    <span class = "bi bi-trash-fill"></span>
+                </a>
+            </td>
+            <td>{{ questionario03.paciente.prontuario }}</td>
+            <td>{{ questionario03.paciente.usuario.nome }}</td>
+            <td>{{ questionario03.tipo_parto }}</td>
+            <td>{{ questionario03.data_parto }}</td>
+            <td>{{ questionario03.hora_parto }}</td>
+            <td>{{ questionario03.data_cadastro }}</td>
+        </tr>
+    {% empty %}
+        <p>Nenum registro</p>
+    {% endfor %}
+    </tbody>
+{% endblock table %}

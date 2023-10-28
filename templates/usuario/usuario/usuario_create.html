@@ -1,0 +1,69 @@
+{% extends 'base/create.html' %}{% load crispy_forms_filters %}
+
+
+{% block form %}
+
+    {% block titulo %}
+        <h1>Cadastro de Usuário</h1>
+    {% endblock titulo %}
+    <div class=" row g-3 container-fluid">
+        <div class="col-md-3">{{ form.cpf|as_crispy_field }}</div>
+        <div class="col-md-9">{{ form.nome|as_crispy_field }}</div>
+        <div class="col-md-2">{{ form.data_nascimento|as_crispy_field }}</div>
+        <div class="col-md-3">{{ form.escolaridade|as_crispy_field }}</div>
+        <div class="col-md-2">{{ form.estado_civil|as_crispy_field }}</div>
+        <div class="col-md-4">{{ form.profissao_ocupacao|as_crispy_field }}</div>
+        <div class="col-md-1">{{ form.raca|as_crispy_field }}</div>
+        <div class="col-md-6">
+
+            <label
+                    for="id_data_cadastro"
+                    class="form-label requiredField">
+                Data cadastro
+            </label>
+
+            <input
+                    type="text"
+                    name="data_cadastro"
+
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_cadastro"
+                    placeholder="{{ usuario.data_cadastro }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-6">
+
+            <label
+                    for="id_data_atualizacao"
+                    class="form-label requiredField">
+                Atualizado
+            </label>
+
+            <input
+                    type="text"
+                    name="data_atualizacao"
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_atualizacao"
+                    placeholder="{{ usuario.data_atualizacao }}"
+                    readonly/>
+
+        </div>
+
+    </div>
+
+    {#    <div class="row g-3 container-fluid">#}
+    {##}
+    {##}
+    {#        {{ form | crispy }}#}
+    {##}
+    {#    </div>#}
+
+{% endblock form %}
+
+{% block adicionar_button %}
+
+{% endblock adicionar_button %}
+

@@ -1,0 +1,65 @@
+{% extends "base/main.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+
+    <div class="row g-3 container-fluid mt-2 mb-2 border p-2">
+        <h1> NECESSIDADES PSICOSSOCIAIS E PSICOESPIRITUAIS </h1>
+        <div class="col-md-4">
+            <p class="form-label"> Prontuário </p>
+            <p class="form-control">{{ questionario0302.questionario03.paciente.prontuario }}</p>
+        </div>
+        <div class="col-md-8">
+            <p class="form-label"> Paciente </p>
+            <p class="form-control">{{ questionario0302.questionario03.paciente.usuario.nome }}</p>
+        </div>
+        <div class="row g-1 container-fluid mt-2 mb-2 border p-2">
+            <h1>ANTES DA INICISÃO CIRÚRGICA</h1>
+            <div class="col-md-3">
+                <p class="form-label"> Segurança Emocional </p>
+                <p class="form-control">{{ questionario0302.seguranca_emocional }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label"> Amor e Aceitação </p>
+                <p class="form-control">{{ questionario0302.amor_aceitacao }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label"> Apoio Familiar </p>
+                <p class="form-control">{{ questionario0302.amor_aceitacao_apoio_familiar }}</p>
+
+            </div>
+            <div class="col-md-3">
+                <p class="form-label"> Acompanhante </p>
+                <p class="form-control">{{ questionario0302.amor_aceitacao_acompanhante }}</p>
+
+            </div>
+            <div class="col-md-3">
+                <p class="form-label"> Quem </p>
+                <p class="form-control">{{ questionario0302.amor_aceitacao_acompanhante_quem }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label">Aprendizagem Educação e Saúde </p>
+                <p class="form-control">{{ questionario0302.aprendizagem_educacao_saude }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label">Comunicação Gregaria</p>
+                <p class="form-control">{{ questionario0302.comunicacao_gregaria }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label">percepão sobre imagem corporal</p>
+                <p class="form-control">{{ questionario0302.percepcao_sobre_imagem_corporal }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label">Autoconfiança com a mães</p>
+                <p class="form-control">{{ questionario0302.autoconfianca_como_mae }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label">Religião</p>
+                <p class="form-control">{{ questionario0302.religiao }}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="form-label">Necessidade de auxílio espiritual</p>
+                <p class="form-control">{{ questionario0302.necessita_auxilio_espiritual }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

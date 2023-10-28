@@ -1,0 +1,92 @@
+{% extends 'base/create.html' %}{% load crispy_forms_filters %}{% load crispy_forms_tags %}
+{#{% load crispy_forms_filters %}#}
+
+{#        {% if form.usuario.value == none %}#}
+{#            {{ form.usuario|as_crispy_field }}#}
+{#        {% else %}#}
+{#            {% for i in form.usuario.field.queryset.values %}#}
+{#                {% if i.id == form.usuario.value %}#}
+{##}
+{#                    <label#}
+{#                            class="form-label"#}
+{#                            for="{{ i.id }}">Usuário</label>#}
+{#                    <input#}
+{#                            class="text-input form-control"#}
+{#                            type="text"#}
+{#                            name="usuario"#}
+{#                            id="{{ i.id }}"#}
+{#                            placeholder="{{ i.nome }}"#}
+{#                                value="{{ form.usuario.value }}"#}
+{#                    >#}
+{##}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{#    </div>#}
+
+{% block form %}
+    {% block titulo %}
+        <h1>Cadastrar de Paciente</h1>
+    {% endblock titulo %}
+    <div class="row g-3 container-fluid">
+        <div class="col-md-4">{{ form.usuario|as_crispy_field }}</div>
+        <div class="col-md-8">{{ form.prontuario|as_crispy_field }}</div>
+        <div class="col-md-6">
+
+            <label
+                    for="id_data_cadastro"
+                    class="form-label requiredField">
+                Data cadastro
+            </label>
+
+            <input
+                    type="text"
+                    name="data_cadastro"
+
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_cadastro"
+                    placeholder="{{ usuario.data_cadastro }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-6">
+
+            <label
+                    for="id_data_atualizacao"
+                    class="form-label requiredField">
+                Atualizado
+            </label>
+
+            <input
+                    type="text"
+                    name="data_atualizacao"
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_atualizacao"
+                    placeholder="{{ usuario.data_atualizacao }}"
+                    readonly/>
+
+        </div>
+    </div>
+{% endblock form %}
+
+
+{% block adicionar_button %}
+    {% if paciente.usuario.id %}
+        <a class="btn btn-secondary" href="{% url 'usuario.detail' pk=paciente.id %}">
+            <span class="bi bi-card-checklist"></span> Usuário
+        </a>
+
+
+    {% endif %}
+
+        <a class="btn btn-secondary" href="{% url 'paciente.create' %}">
+            <span class="bi bi-plus-circle"></span> Novo Paciente
+        </a>
+
+
+{% endblock adicionar_button %}
+
+
+

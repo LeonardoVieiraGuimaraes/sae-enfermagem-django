@@ -1,0 +1,36 @@
+#version: "3.9"
+
+services:
+  django-gunicorn-sae:
+    build:
+      context: .
+      dockerfile: Dockerfile-python-gunicorn
+    command: gunicorn SAE.wsgi --bind 0.0.0.0:8002 --reload
+    restart: unless-stopped
+    volumes:
+      - /root/SAE:/SAE
+
+    expose:
+      - 8002
+    ports:
+      - 8002:8002
+
+    networks:
+          - nginx-network
+
+networks:
+  nginx-network:
+    external: true
+
+
+
+#    django-uwsgi:
+    #    build:
+    #      context: .
+    #      dockerfile: Dockerfile-python
+    #
+    #    command: uwsgi --http 0.0.0.0:8002 --module hospital.wsgi
+    #    expose:
+    #      - 8002
+    #    ports:
+    #      - 8002:8002
