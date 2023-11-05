@@ -1,10 +1,10 @@
 FROM python:latest
-WORKDIR /SAE
+WORKDIR /sae-enfermagem-django
 #ENV PYTHONDONTWRITEBYTECODE 1
 #ENV PYTHONUNBUFFERED 1
 # By copying over requirements first, we make sure that Docker will cache
 # our installed requirements rather than reinstall them on every build
-COPY requirements.txt /SAE/requirements.txt
+COPY requirements.txt /sae-enfermagem-django/requirements.txt
 #COPY hospital/hosptial_uwsgi.ini /hospital/hosptial_uwsgi.ini
 
 #COPY /hospital/. /hospital
