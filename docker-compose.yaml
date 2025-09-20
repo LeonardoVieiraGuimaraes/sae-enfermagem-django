@@ -1,37 +1,25 @@
-#version: "3.9"
+version: "3.9"
 
 services:
   sae-enfermagem:
     build:
       context: .
       dockerfile: Dockerfile-python-gunicorn
-    command: gunicorn SAE.wsgi --bind 0.0.0.0:80 --reload
     restart: unless-stopped
-    volumes:
-      - ../sae-enfermagem-django:/sae-enfermagem-django
-
-    expose:
-      - 8002
     ports:
-      - 8002:80
-
+      - "8002:80"
+    environment:
+      - DJANGO_SETTINGS_MODULE=SAE.settings
+    volumes:
+      - static_volume:/sae-enfermagem-django/static
+      - media_volume:/sae-enfermagem-django/media
     networks:
-      - nginx-network
+      - sae-network
+
+volumes:
+  static_volume:
+  media_volume:
 
 networks:
-  nginx-network:
+  sae-network:
     driver: bridge
-    # external: true
-
-
-
-#    django-uwsgi:
-    #    build:
-    #      context: .
-    #      dockerfile: Dockerfile-python
-    #
-    #    command: uwsgi --http 0.0.0.0:8002 --module hospital.wsgi
-    #    expose:
-    #      - 8002
-    #    ports:
-    #      - 8002:8002

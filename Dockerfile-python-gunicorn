@@ -1,43 +1,32 @@
-FROM python:latest
+FROM python:3.11-slim
+
+# Configurar variáveis de ambiente
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SETTINGS_MODULE=SAE.settings
+
+# Definir diretório de trabalho
 WORKDIR /sae-enfermagem-django
-#ENV PYTHONDONTWRITEBYTECODE 1
-#ENV PYTHONUNBUFFERED 1
-# By copying over requirements first, we make sure that Docker will cache
-# our installed requirements rather than reinstall them on every build
-COPY requirements.txt /sae-enfermagem-django/requirements.txt
-#COPY hospital/hosptial_uwsgi.ini /hospital/hosptial_uwsgi.ini
 
-#COPY /hospital/. /hospital
-RUN #apt-get update && apt-get upgrade -y && apt-get install build-essential python -y && apt-get install python-dev -y
-RUN apt-get update && apt-get upgrade -y
-RUN pip install --upgrade pip && pip install -r requirements.txt && pip install gunicorn
+# Instalar dependências do sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
+# Copiar e instalar dependências Python
+COPY requirements.txt .
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt \
+    && pip install gunicorn
 
+# Copiar código da aplicação
+COPY . .
 
-# Now copy in our code, and run it
+# Coletar arquivos estáticos
+RUN python manage.py collectstatic --noinput
 
-#CMD python manage.py runserver
-#
-CMD ["python", "manage.py", "collectstatic"]
-CMD ["python", "manage.py", "makemigrations"]
-CMD ["python", "manage.py", "migrate"]
-#
-#CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
+# Expor porta
+EXPOSE 80
 
-
-#CMD ["uwsgi", "--socket", ":8001", "--module", "hospital.wsgi"]
-#
-##CMD ["uwsgi", "--http", ":8000", "--wsgi-file", "test.py"]
-#
-#
-##CMD ["uwsgi", "--socket", ":8001", "--wsgi-file", "test.py"]
-#
-##CMD ["uwsgi", "--socket", ":8000", "--wsgi-file", "test.py"]
-#
-##CMD ["uwsgi", "--ini", "hospital_uwsgi.ini"]
-#
-#
-##uwsgi --ini uwsgi.ini
-#
-##EXPOSE 8000
-##ENTRYPOINT ["/home/ubuntu/hello_django/bin/gunicorn_start"]
+# Comando para executar a aplicação
+CMD ["sh", "-c", "python manage.py migrate && gunicorn SAE.wsgi --bind 0.0.0.0:80 --workers 3"]
